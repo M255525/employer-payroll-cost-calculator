@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="zh-Hant-TW">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>雇主人事成本試算・操作手冊</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@500;700;900&family=Noto+Serif+TC:wght@900&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#13263A;--sub:#566A7D;--bg:#EDF2F4;--paper:#FFFFFF;--line:#CBD6DE;--deep:#0F2C4A;--red:#C2412D;--blue:#1E4E79}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:'Noto Sans TC','Microsoft JhengHei',sans-serif;font-weight:500;font-size:17px;line-height:1.75}
+main{max-width:800px;margin:0 auto;padding:20px 16px 48px}
+h1,h2{font-family:'Noto Serif TC',serif;font-weight:900;line-height:1.35;color:var(--deep)}
+h1{font-size:30px;margin:0 0 6px}
+h2{font-size:22px;margin:4px 0 8px}
+section{background:var(--paper);border-radius:14px;border:1.5px solid var(--line);padding:12px 18px 14px;margin-top:14px}
+a{color:var(--blue);font-weight:700}
+li{margin:5px 0}
+ol,ul{padding-left:1.3em}
+.tw{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-size:15px;min-width:520px}
+th,td{border:1px solid var(--line);padding:5px 8px;text-align:left;vertical-align:top}
+th{background:#E6EEF3}
+.red{color:var(--red);font-weight:900}
+code{background:#E6EEF3;border-radius:4px;padding:0 4px}
+@media print{body{background:#fff}section{break-inside:avoid}}
+</style>
+</head>
+<body>
+<main>
+<h1>雇主人事成本試算・操作手冊</h1>
+<p><a href="index.html">← 回到工具</a></p>
+
+<section>
+<h2>這是什麼</h2>
+<p>請一個月薪 3 萬 2 的員工，老闆一年要花的其實不只 3 萬 2 × 12。勞保、就保、職災、健保、勞退、年終、補充保費、特休、福利，加起來通常是月薪的 1.2 到 1.5 倍。</p>
+<p>這個工具把員工的薪水畫成一座冰山：水面上是員工看得到的薪水，水面下是雇主另外要付的錢。輸入月薪、加班、年終、年資，就能算出每個人和全公司一年的真實人事成本。</p>
+<p>不用註冊。資料只存在您這台裝置的瀏覽器，不會上傳。</p>
+</section>
+
+<section>
+<h2>開始使用</h2>
+<ol>
+<li>想先看看效果，按上方「看範例」的早午餐店、設計工作室或加工廠（都是虛構的）。看完按「離開範例」。</li>
+<li>在「💰 員工試算」分頁的「公司設定」選<b>行業別</b>。職災保險費率依行業不同（0.12% 到 0.96%）。如果手上有勞保局通知的費率（員工 50 人以上用實績費率），填在「自訂職災費率」。</li>
+<li>在「員工」清單點一位員工，右邊改條件：月薪制或時薪制、本薪、固定津貼、加班、年終、年資、福利。條件一樣的人填「人數」一次算，例如 3 位工讀生。</li>
+<li>每改一個數字，上方的冰山和下方的成本明細就會立刻更新。</li>
+<li>「📊 全公司總覽」看每個人的成本、全公司各項費用比例，再填毛利率，算出每月至少要有多少營業額才養得起這個團隊。</li>
+<li>「🎯 預算反推與調薪」：輸入每月預算，反推能開多少月薪；或輸入調薪幅度，看全公司成本多多少。</li>
+<li>「📋 級距速查」：輸入月薪，找到對應的勞保、健保、勞退級距與雇主、員工各付多少。</li>
+</ol>
+</section>
+
+<section>
+<h2>怎麼算的</h2>
+<div class="tw"><table>
+<tr><th>項目</th><th>算法（2026 年）</th></tr>
+<tr><td>投保依據</td><td>本薪＋固定津貼（經常性薪資），對應到級距表中「大於等於」的那一級，超過上限就用上限。加班費不列入。全職者最低以基本工資 29,500 元投保。</td></tr>
+<tr><td>勞保普通事故</td><td>勞保級距 × 11.5% × 雇主 70%（級距 29,500～45,800，共 11 級）</td></tr>
+<tr><td>就業保險</td><td>勞保級距 × 1% × 雇主 70%</td></tr>
+<tr><td>職災保險</td><td>職災級距 × 行業別費率（含上下班 0.07%），雇主全額負擔（級距上限 72,800）</td></tr>
+<tr><td>工資墊償基金</td><td>勞保級距 × 0.025%</td></tr>
+<tr><td>健保</td><td>健保級距 × 5.17% × 雇主 60% × 1.56（本人＋平均眷口數 0.56），級距上限 313,000</td></tr>
+<tr><td>勞退</td><td>勞退提繳工資 × 雇主提繳率（至少 6%，上限 150,000）</td></tr>
+<tr><td>補充保費</td><td>全公司每月實付薪資合計 − 健保投保金額合計，超過的部分 × 2.11%。年終等年度獎金假設在同一個月發，再依每人超出的金額分攤。</td></tr>
+<tr><td>加班費</td><td>時薪＝（本薪＋固定津貼）÷ 240。平日前 2 小時 ×4/3、再 2 小時 ×5/3；休息日前 2 小時 ×4/3、3～8 小時 ×5/3、9～12 小時 ×8/3（勞基法第 24 條）。</td></tr>
+<tr><td>特休</td><td>依勞基法第 38 條：滿半年 3 天、1 年 7 天、2 年 10 天、3 年 14 天、5 年 15 天、10 年起每年加 1 天，最多 30 天。特休本來就含在月薪裡，只有沒休完、要折發工資的天數才另外算（日薪＝月薪 ÷ 30）。</td></tr>
+<tr><td>員工實領</td><td>每月薪資 − 勞保就保自付（20%）− 健保自付（30% ×（本人＋眷屬，最多算 3 口））− 勞退自提，未扣所得稅。</td></tr>
+</table></div>
+<p>部分工時（時薪制）：勞保與職災採 11,100 元起的分級表；健保若在本公司加保，最低仍是 29,500 元。工讀生如果已經依附家人加健保，取消「在本公司加健保」。</p>
+<p>員工未滿 5 人時，普通事故勞保可以選擇不加（勞保條例第 6 條，自願加保），但就保、職災仍要加。勾選後只扣掉普通事故那一塊。</p>
+</section>
+
+<section>
+<h2>匯出與備份</h2>
+<ul>
+<li><b>🖨 列印／存 PDF</b>：印出冰山、總成本與目前分頁（員工試算或全公司總覽），每頁有馬克老師浮水印。要存成 PDF，在列印視窗選「另存為 PDF」。</li>
+<li><b>下載 CSV</b>：每位員工每一項費用，用 Excel 打開就能再加工。</li>
+<li><b>⚙ 常用設定 → 資料備份</b>：下載備份檔（JSON），換電腦後從備份檔還原。</li>
+<li><b>⚙ 常用設定 → 費率參數</b>：新年度基本工資或費率調整時，在這裡改；按「恢復預設」回到 2026 年數字。級距表本身要等工具更新。</li>
+</ul>
+</section>
+
+<section>
+<h2>常見問題</h2>
+<p><b>為什麼跟會計算的差幾塊錢？</b>官方保費每一項分開四捨五入，工具也照這樣算，但到職、離職當月按天數計算，以及勞保局實際核定的級距，工具沒辦法知道。</p>
+<p><b>年終一定要發嗎？</b>勞基法沒有強制，但工作契約或工作規則有寫就要發。不發就把「年終幾個月」填 0。</p>
+<p><b>沒算到的東西？</b>所得稅扣繳、職工福利金、舊制退休準備、資遣費、外籍勞工就業安定費、身障進用差額補助費都沒有算。</p>
+</section>
+
+<section>
+<h2>資料來源（2026 年 11 月查證）</h2>
+<ul>
+<li>勞動部勞工保險局：115 年 1 月 1 日起勞工保險、就業保險投保薪資分級表；勞工職業災害保險投保薪資分級表；勞工退休金月提繳分級表。</li>
+<li>衛生福利部中央健康保險署：全民健康保險投保金額分級表及保險費負擔金額表（115.1.1 生效，平均眷口數 0.56）。</li>
+<li>勞動部：勞工職業災害保險適用行業別及費率表（114 年 1 月 1 日施行，<a href="https://data.gov.tw/dataset/6262" target="_blank" rel="noopener">政府資料開放平臺</a>）。</li>
+<li><a href="https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=N0030001" target="_blank" rel="noopener">勞動基準法</a>（第 24、32、38 條）、<a href="https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=N0050001" target="_blank" rel="noopener">勞工保險條例</a>、<a href="https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=L0060001" target="_blank" rel="noopener">全民健康保險法</a>、<a href="https://law.moj.gov.tw/LawClass/LawAll.aspx?pcode=N0030020" target="_blank" rel="noopener">勞工退休金條例</a>。</li>
+</ul>
+</section>
+
+<section>
+<h2>使用警語</h2>
+<p class="red">本工具是試算，不是薪資計算或會計、法律意見。費率與級距以勞保局、健保署最新公告為準。</p>
+<p>範例公司與人物全部虛構。資料只存在這台裝置，清除瀏覽器資料就會不見，重要內容請下載備份檔。</p>
+</section>
+
+<section id="creator">
+<h2>關於創作者</h2>
+{{CREATOR}}
+</section>
+</main>
+</body>
+</html>
