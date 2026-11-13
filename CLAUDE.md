@@ -4,7 +4,7 @@
 
 - 純靜態：`index.html`（CSS）＋`data.js`（費率、級距表、行業別職災費率、計算引擎，node 也能 require）＋`app.js`（畫面）＋`watermark.js`（`EPC_WATERMARK` 馬克老師浮水印，列印用）＋`manual.html`＋PWA。
 - 本機預覽 port **8876**（`.claude/launch.json` 的 `employer-payroll-cost-calculator`）。visitor-badge `m255525.employerpayrollcostcalculator`。
-- 部署：`.github/workflows/pages.yml`（push master 自動部署 GitHub Pages）。**尚未建立遠端 repo／未上線**（使用者自己跑 `gh repo create`）。
+- 部署：`.github/workflows/pages.yml`（push master 自動部署 GitHub Pages）。2026-11-13 上線 <https://m255525.github.io/employer-payroll-cost-calculator/> 。
 
 ## 費率與級距（2026-11 查證，改數字要同步三處：`data.js`、`tools/manual_body.html`、`app.js` 的 `WARN_HTML`）
 - 基本工資 29,500／時薪 196；勞保 11.5%＋就保 1%（雇主 70%、勞工 20%），級距 29,500～45,800 共 11 級；部分工時另有 11,100～28,590 的 17 級（職災同樣套用，這點未在官方查到明文，警語有寫「以主管機關認定為準」）。
