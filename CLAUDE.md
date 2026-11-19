@@ -30,3 +30,6 @@
 
 ## 未計入（警語有寫）
 所得稅扣繳、職工福利金、舊制退休準備、資遣費、外勞就業安定費、身障進用差額補助費、到離職當月按日計費。
+
+## MCP 同步
+`data.js` 也被 `小工具/rules-engine-mcp/` 複製去當 MCP 工具引擎。改了 `data.js` 之後，到該資料夾跑 `node tools/sync_engines.mjs --write` 再 `npm test`。
